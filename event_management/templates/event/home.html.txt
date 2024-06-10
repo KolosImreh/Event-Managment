@@ -1,0 +1,10 @@
+<!-- events/templates/events/home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Management</title>
+</head>
+<body>
+    <h1>Welcome to the Event Management System</h1>
+</body>
+</html>
