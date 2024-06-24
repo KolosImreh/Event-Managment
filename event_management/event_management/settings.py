@@ -35,12 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.messages',  # Ensure this appears only once
     'django.contrib.staticfiles',
-    'events',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.humanize',
+    'events',  # Your app should be here
+    # 'django.contrib.sites',  # This is optional unless you are using the sites framework
 ]
 
 MIDDLEWARE = [
