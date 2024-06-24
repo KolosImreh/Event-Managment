@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',  # Ensure this appears only once
     'django.contrib.staticfiles',
     'events',  # Your app should be here
-    # 'django.contrib.sites',  # This is optional unless you are using the sites framework
+    'django.contrib.sites',  # Required for allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',  # Enable if you want to add social logins
 ]
 
 MIDDLEWARE = [
@@ -49,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'event_management.urls'
@@ -104,6 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Configure Authentication Backends
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -126,3 +135,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Django Allauth settings
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "optional"  # You can change this to "mandatory" if needed
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
