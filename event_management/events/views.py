@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EventForm, UserProfileForm
 from .models import Event, UserProfile
 from django.contrib.auth.decorators import login_required
@@ -34,3 +34,11 @@ def update_profile(request):
     else:
         form = UserProfileForm(instance=profile)
     return render(request, 'events/update_profile.html', {'form': form})
+
+def event_list(request):
+    events = Event.objects.all()
+    return render(request, 'events/event_list.html', {'events': events})
+
+def event_detail(request, pk):
+    event = get_object_or_404(Event, pk=pk)
+    return render(request, 'events/event_detail.html', {'event': event})
