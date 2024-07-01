@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Event Management</title>
+    <title>Home</title>
 </head>
 <body>
     <h1>Welcome to the Event Management System</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'event_list' %}">Events</a></li>
+            <li><a href="{% url 'create_event' %}">Create Event</a></li>
+            <li><a href="{% url 'update_profile' %}">Update Profile</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
