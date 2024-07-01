@@ -120,3 +120,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 SITE_ID = 1
+
+ACCOUNT_FORMS = {
+    'signup': 'events.forms.CustomSignupForm',
+}

@@ -1,12 +1,10 @@
-from django import forms
-from .models import Event, UserProfile
+# events/forms.py
 
-class EventForm(forms.ModelForm):
-    class Meta:
-        model = Event
-        fields = ['title', 'description', 'date', 'time', 'location']
+from allauth.account.forms import SignupForm
 
-class UserProfileForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ['profile_picture', 'bio']
+class CustomSignupForm(SignupForm):
+    def save(self, request):
+        user = super(CustomSignupForm, self).save(request)
+        # Add custom logic here (e.g., send a welcome email)
+        return user
+
